@@ -9,19 +9,19 @@ public class Task5 {
         System.out.println(Arrays.toString(arr));
         Mix(arr);
         System.out.println(Arrays.toString(arr));
+        Mix(arr);
+        System.out.println(Arrays.toString(arr));
+        Mix(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     static void Mix(int[] input) {
         Random random = new Random();
-        int i = random.nextInt(input.length + 1);
-        System.out.println(i);
-        for (int j = 0; j < input.length; j++) {
-            int temp;
-            if (0 < j && j < i) {
-                temp = input[i];
-                input[i] = input[j];
-                input[j] = temp;
-            }
+        for (int i = 0; i < input.length; i++) {
+            int ix = random.nextInt(input.length - i);
+            int temp = input[ix];
+            input[ix] = input[i];
+            input[i] = temp;
         }
     }
 }
