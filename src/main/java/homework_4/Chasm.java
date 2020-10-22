@@ -1,9 +1,9 @@
 package homework_4;
 
-public class Road extends Barrier {
+public class Chasm extends Barrier {
     private int length;
 
-    public Road(String name, int length) {
+    public Chasm(String name, int length) {
         super(name);
         this.length = length;
     }
@@ -13,18 +13,18 @@ public class Road extends Barrier {
     }
 
     public boolean access(Member member) {
-        if (member.getMaxRun() > 0)
+        if (member.getMaxFly() > 0)
             return action(member);
         else {
-            System.out.println("Участник не может бегать");
+            System.out.println("Участник не может летать");
             return false;
         }
     }
 
     @Override
     public boolean action(Member member) {
-        boolean result = member.getMaxRun() >= length;
-        System.out.printf("Участник %s %s пробежал дорожку длиной %d%n",
+        boolean result = member.getMaxFly() >= length;
+        System.out.printf("Участник %s %s перелетел пропасть шириной %d%n",
                 member.getName(), result ? "" : "не", length);
         return result;
     }

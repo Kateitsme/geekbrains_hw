@@ -13,12 +13,20 @@ public class Wall extends Barrier {
     }
 
     @Override
+    public boolean access(Member member) {
+        if (member.getMaxJump() > 0)
+            return action(member);
+        else {
+            System.out.println("Участник не может прыгать");
+            return false;
+        }
+    }
+
+    @Override
     public boolean action(Member member) {
-        member.Jump();
-        if (getHeight() <= member.getJumpLimit())
-            member.SuccessfulJump();
-        else
-            member.UnsuccessfulJump();
-        return getHeight() <= member.getJumpLimit();
+        boolean result = member.getMaxJump() >= height;
+        System.out.printf("Участник %s %s перепрыгнул стену высотой %d%n",
+                member.getName(), result ? "" : "не", height);
+        return result;
     }
 }
