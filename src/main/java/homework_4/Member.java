@@ -1,50 +1,51 @@
 package homework_4;
 
-public class Member {
-    private String type;
+public abstract class Member {
     private String name;
-    private int runLimit;
-    private int jumpLimit;
+    private int maxRun;
+    private int maxJump;
+    private int maxSwim;
+    private int maxFly;
 
-    public Member(String type, String name, int runLimit, int jumpLimit) {
-        this.type = type;
+    public Member(String name) {
         this.name = name;
-        this.runLimit = runLimit;
-        this.jumpLimit = jumpLimit;
     }
 
-    public String getType() {
-        return type;
-    }
 
     public String getName() {
         return name;
     }
 
-    public int getRunLimit() {
-        return runLimit;
+    public int getMaxJump() {
+        return maxJump;
     }
 
-    public int getJumpLimit() {
-        return jumpLimit;
+    public void setMaxJump(int maxJump) {
+        this.maxJump = maxJump;
     }
-    public void Run(){
-        System.out.println("Участник бежит.");
+
+    public int getMaxRun() {
+        return maxRun;
     }
-    public void Jump(){
-        System.out.println("Участник прыгает.");
+
+    public void setMaxRun(int maxRun) {
+        this.maxRun = maxRun;
     }
-    public void SuccessfulRun(){
-        System.out.println(this.type + this.name +  "успешно пробежал.");
+
+    public int getMaxSwim() {
+        return maxSwim;
     }
-    public void SuccessfulJump(){
-        System.out.println(this.type + this.name +  "успешно прошел препятствия.");
+
+    public void setMaxSwim(int maxSwim) {
+        this.maxSwim = maxSwim;
     }
-    public void UnsuccessfulRun(){
-        System.out.println(this.type + this.name +  "не смог пробежать.");
+
+    public int getMaxFly() {
+        return maxFly;
     }
-    public void UnsuccessfulJump(){
-        System.out.println(this.type + this.name +  "не смог преодолеть препятствия.");
+
+    public void setMaxFly(int maxFly) {
+        this.maxFly = maxFly;
     }
 
 }

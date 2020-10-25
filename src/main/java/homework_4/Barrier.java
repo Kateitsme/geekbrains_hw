@@ -10,6 +10,7 @@ public abstract class Barrier {
     public String getName() {
         return name;
     }
+    public abstract boolean access(Member member);
 
     public abstract boolean action(Member member);
 }
