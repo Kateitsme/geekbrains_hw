@@ -12,6 +12,7 @@ public class Chasm extends Barrier {
         return length;
     }
 
+    @Override
     public boolean access(Member member) {
         if (member.getMaxFly() > 0)
             return action(member);
