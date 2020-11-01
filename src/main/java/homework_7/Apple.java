@@ -1,8 +1,9 @@
 package homework_7;
 
 public class Apple extends Fruit{
+
     @Override
-    public float getWeight() {
-        return 1.0f;
+    public double getWeight() {
+        return 1.5;
     }
 }

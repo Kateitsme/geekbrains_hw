@@ -1,25 +1,32 @@
 package homework_7;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 import java.util.ArrayList;
 
 public class Box<T extends Fruit> {
-    private ArrayList<T> box = new ArrayList<>();
-    public float getWeight(){
-        float weight = 0.0f;
-        for(T box : box)
+    private ArrayList<T> list = new ArrayList<>();
+    public double getWeight(){
+        if (list.size()==0)
+            return 0;
+        double weight = 0;
+        for(T box : list)
             weight += box.getWeight();
         return weight;
     }
-    public boolean compare(Box anotherBox) {
-        return getWeight() == anotherBox.getWeight();
+    public boolean compare(Box <?> anotherBox) {
+        // <?> добавили, чтобы в бокс нельзя было добавить элементы
+        //anotherBox.addFruit(new Apple(),new Orange()); не сработает
+        return this.getWeight() == anotherBox.getWeight();
     }
-    public void move(Box <T>anotherBox){
-        anotherBox.box.addAll(box);
-        box.clear();
+    public void move(Box <T> anotherBox){
+        //T потому что может пересыпать фрукты одного вида
+        anotherBox.list.addAll(list);
+        list.clear();
     }
     public void addFruit(T fruit, int amount){
         for(int i=0;i<amount;i++){
-            box.add(fruit);
+            list.add(fruit);
         }
     }
 
