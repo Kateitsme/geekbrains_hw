@@ -3,20 +3,20 @@ package homework_8;
 import java.util.*;
 
 public class Phonebook {
-    private HashMap<String, List<Integer>> phones;
+    private HashMap<String, List<String>> phones;
 
     public Phonebook() {
         this.phones = new HashMap<>();
     }
-    public void add(String surname, Integer number){
+    public void add(String surname, String number){
         if (phones.containsKey(surname)){
-            List<Integer> numbers = phones.get(surname);
-            numbers.add(number);
+            List<String> numbers = phones.get(surname);
+            numbers.add(String.valueOf(number));
         }
-        else phones.put(surname, new ArrayList<>(Arrays.asList(number)));
+        else phones.put(surname, new ArrayList<String>(Collections.singleton(String.valueOf(number))));
 
     }
-    public List<Integer> get(String surname) {
+    public List<String> get(String surname) {
         if (phones.containsKey(surname)) return phones.get(surname);
         else {
             System.out.println(String.format("В справочнике нет номера для фамилии %s", surname));
@@ -26,13 +26,13 @@ public class Phonebook {
 
     public static void main(String[] args) {
         Phonebook book= new Phonebook();
-        book.add("Иванов", 784512);
-        book.add("Калинина", 451285);
-        book.add("Воробьева", 741263);
-        book.add("Ефремова", 954123);
-        book.add("Романова", 743256);
-        book.add("Воробьева", 123212);
-        book.add("Ефремова", 415263);
+        book.add("Иванов", "784512");
+        book.add("Калинина", "451285");
+        book.add("Воробьева", "741263");
+        book.add("Ефремова", "954123");
+        book.add("Романова", "743256");
+        book.add("Воробьева", "123212");
+        book.add("Ефремова", "415263");
 
         System.out.println(book.get("Воробьева"));
         System.out.println(book.get("Калинина"));
